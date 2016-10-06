@@ -18,8 +18,8 @@ A vehicle.
     + Normative References: [https://schema.org/description](https://schema.org/description)
     + Optional
 
-+ `location` : Vehicle's last known location represented by a GeoJSON Point. Such point may contain the vehicle's altitude as the third component of the
-`coordinates` array. 
++ `location` : Vehicle's last known location represented by a GeoJSON Point. Such point may contain the vehicle's
+*altitude* as the third component of the `coordinates` array. 
     + Attribute type: `geo:json`.
     + Normative References: [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     + Attribute metadata:
@@ -28,7 +28,8 @@ A vehicle.
             + Type: [DateTime](http://schema.org/DateTime) or `ISO8601` (legacy).   
     + Optional
     
-+ `previousLocation` : Vehicle's previous location represented by a GeoJSON Point. 
++ `previousLocation` : Vehicle's previous location represented by a GeoJSON Point. Such point may contain the previous vehicle's
+*altitude* as the third component of the`coordinates` array.
     + Attribute type: `geo:json`.
     + Normative References: [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     + Attribute metadata:
@@ -37,7 +38,7 @@ A vehicle.
     + Optional
     
 + `speed` : Denotes the magnitude of the horizontal component of the vehicle's current velocity and is specified in Kilometers per Hour.
-If provided, the value of the speed attribute must be a non-negative real number. `null` may be used if `speed` is transiently unknown for some reason.    
+If provided, the value of the speed attribute must be a non-negative real number. `null` *MAY* be used if `speed` is transiently unknown for some reason.    
     + Attribute type: [Number](https:/schema.org/Number)
     + Default unit: Kilometers per hour
     + Attribute metadata:
@@ -46,9 +47,9 @@ If provided, the value of the speed attribute must be a non-negative real number
             + Type: [DateTime](http://schema.org/DateTime) or `ISO8601` (legacy).
     + Optional
     
-+ `heading` : Denotes the direction of travel of the vehicle and is specified in degrees,
++ `heading` : Denotes the direction of travel of the vehicle and is specified in decimal degrees,
 where 0° ≤ `heading` < 360°, counting clockwise relative to the true north.  If the vehicle is stationary (i.e. the value of the `speed` attribute is `0`),
-then the value of the heading attribute must be equal to `null`. `null` may be used if `heading` is transiently unknown for some reason.   
+then the value of the heading attribute must be equal to `null`. `null` *MAY* be used if `heading` is transiently unknown for some reason.   
     + Attribute type: [Number](https://schema.org)
     + Attribute metadata:
         + `timestamp` :  Timestamp which captures when the vehicle was heading towards such direction.
@@ -59,7 +60,9 @@ then the value of the heading attribute must be equal to `null`. `null` may be u
 + `category` : Vehicle category(ies) from the point of view of usage.
 This is different than the vehicle type (car, lorry, etc.) represented by the `vehicleType` property.
     + Attribute type: List of [Text](https:/schema.org/Text)
-    + Allowed values: (`public`, `private`, `municipalServices`) or any other needed by the applocation. 
+    + Allowed values: (`public`, `private`, `municipalServices`, `specialUsage`) or any other needed by the application.
+    + (`tracked`, `nonTracked`). Tracked vehicles are those vehicles which position is permanently tracked by a remote system.
+    They incorporate a GPS receiver together with a network connection to periodically update a reported position (location, speed, heading ...).
     + Mandatory
 
 + `cargoWeight` : Current weight of the vehicle's cargo.
@@ -84,6 +87,10 @@ The registration identifier is numeric or alphanumeric and is unique within the 
 
 + `dateVehicleFirstRegistered` : The date of the first registration of the vehicle with the respective public authorities.
     + Normative References: [https://schema.org/dateVehicleFirstRegistered](https://schema.org/dateVehicleFirstRegistered)
+    + Optional
+    
++ `dateFirstUsed` : Timestamp which denotes when the vehicle was first used.
+    + Attribute type: [DateTime](https://schema.org/DateTime)
     + Optional
 
 + `purchaseDate` : The date the item e.g. vehicle was purchased by the current owner.
@@ -110,27 +117,36 @@ The registration identifier is numeric or alphanumeric and is unique within the 
     + Attribute Type: [https://schema.org/Person](https://schema.org/Person) or
     [https://schema.org/Organization](https://schema.org/Organization)
     + Optional
+    
++ `feature` : Feature(s) incorporated by the vehicle.
+    + Attribute type: List of [Text](https://schema.org/Text)
+    + Allowed values: (`gps`, `airbag`, `overspeed`, `abs`, `wifi`, `backCamera`, `proximitySensor`, `disabledRamp`, `alarm`, `internetConnection`)
+    or any other needed by the application.
+    + Optional
 
 + `serviceProvided` : Service(s) provided by (or associated to) the vehicle.
     + Attribute type: List of [Text](https:/schema.org/Text)
-    + Allowed values: (`wasteContainerPickup`, `parksAndGardens`, `construction`, `lighting`,
-    `cargoTransport`, `urbanTransit`, `maintenance`, `fireBrigade`, `police`).
+    + Allowed values: (`garbageCollection`, `parksAndGardens`, `construction`, `streetLighting`, `roadSignalling`,
+    `cargoTransport`, `urbanTransit`, `maintenance`, `streetCleaning`, `wasteContainerCleaning`, `auxiliaryServices`
+    `goodsSelling`,  `fairground`, `specialTransport`).
     Or any other value needed by an specific application.
     + Optional
 
 + `vehicleSpecialUsage` : Indicates whether the vehicle is been used for special purposes, like commercial rental,
 driving school, or as a taxi. The legislation in many countries requires this information to be revealed when offering a car for sale.
     + Normative References: [https://auto.schema.org/vehicleSpecialUsage](https://auto.schema.org/vehicleSpecialUsage)
+    + Allowed values: (`taxi`, `ambulance`, `police`, `fireBrigade`, `schoolTransportation`, `military`)
     + Optional
     
 + `vehicleType` : Type of vehicle from the point of view of its structural characteristics.
 This is different than the vehicle category (see above).
     + Attribute type: [Text](https://schema.org/Text)
-    + Allowed Values: The following values defined by *VehicleTypeEnum*,
+    + Allowed Values: The following values defined by *VehicleTypeEnum* and *VehicleTypeEnum2*,
     [DATEX 2 version 2.3](http://www.datex2.eu/sites/www.datex2.eu/files/DATEXIISchema_2_2_2_1.zip):
-        + (`agriculturalVehicle`, `bicycle`, `bus`, `car`, `caravan`,
-           `carWithCaravan`, `carWithTrailer`, `lorry`, `moped`,
-           `motorcycle`, `motorcycleWithSideCar`, `motorscooter`, `tanker`, `trailer`, `van`)
+        + (`agriculturalVehicle`, `bicycle`, `bus`, `minibus`, `car`, `caravan`, `tram`, `tanker`,
+           `carWithCaravan`, `carWithTrailer`, `lorry`, `moped`, `tanker`,
+           `motorcycle`, `motorcycleWithSideCar`, `motorscooter`, `trailer`, `van`, `caravan`, `constructionOrMaintenanceVehicle`)
+        + (`trolley`, `binTrolley`, `sweepingMachine`, `cleaningTrolley`)
     + Mandatory
 
 + `refVehicleModel` : Vehicle's model.
@@ -143,7 +159,7 @@ responsible, district, neighbourhood, etc.
     + Optional
     
 + `status` : Vehicle status (from the point of view of the service provided).
-    + One of (`parked`, `onRoute`, `outOfOrder`, `stopped`)
+    + One of (`parked`, `onRoute`, `outOfOrder`, `broken`, `ok`)
     + Attribute type: [Text](https://schema.org/Text)
     + Optional
 
@@ -170,7 +186,7 @@ responsible, district, neighbourhood, etc.
       "speed": 50,
       "cargoWeight": 314,
       "status": "onroute",
-      "serviceProvided": ["WasteContainerPickup"],
+      "serviceProvided": ["gargabeCollection"],
       "areaServed": "Centro",
       "refVehicleModel": "vehiclemodel:econic",
       "vehiclePlateIdentifier": "3456ABC"
@@ -183,3 +199,4 @@ T.B.D.
 ## Issues
 
 * Taxonomy of service types
+* What vehicle special usage categories are defined by the different countries? 

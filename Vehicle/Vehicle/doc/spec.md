@@ -32,8 +32,10 @@ This is different than the vehicle category (see below).
 + `category` : Vehicle category(ies) from an external point of view.
 This is different than the vehicle type (car, lorry, etc.) represented by the `vehicleType` property.
     + Attribute type: List of [Text](https:/schema.org/Text)
-    + Allowed values: (`public`, `private`, `municipalServices`, `specialUsage`) or any other needed by the application.
-    + (`tracked`, `nonTracked`). Tracked vehicles are those vehicles which position is permanently tracked by a remote system.
+    + Allowed values:
+        + (`public`, `private`, `municipalServices`, `specialUsage`).
+        + (`tracked`, `nonTracked`). Tracked vehicles are those vehicles which position is permanently tracked by a remote system.
+        + Or any other needed by an application
     They incorporate a GPS receiver together with a network connection to periodically update a reported position (location, speed, heading ...).
     + Mandatory
 

@@ -139,7 +139,7 @@
             }
         },
         "refDeviceModel": {
-            "description": "The device's model.",
+            "description": "Reference to entity of type DeviceModel.",
             "type": "Text",
             "allowedValues": {
                 "from": "/Device/DeviceModel/schema.json",

@@ -3,20 +3,20 @@
     "name": "WaterQualityObserved",
     "attributes": {
         "id": {
-            "descr": "Unique identifier.",
+            "description": "Unique identifier.",
             "type": "Text",
             "mandatory": true
         },
         "type": {
-            "descr": "Entity type. It must be equal to WaterQualityObserved.",
+            "description": "Entity type. It must be equal to WaterQualityObserved.",
             "type": "Text",
-            "allowedvalues": "WaterQualityObserved",
+            "allowedValues": "WaterQualityObserved",
             "mandatory": true
         },
         "location": {
-            "descr": "Location where measurements have been taken, represented by a GeoJSON Point.",
+            "description": "Location where measurements have been taken, represented by a GeoJSON Point.",
             "type": "geo:json",
-            "allowedvalues": {
+            "allowedValues": {
                 "normative": "https://tools.ietf.org/html/rfc7946"
             },
             "mandatory-if": [
@@ -28,9 +28,9 @@
             ]
         },
         "address": {
-            "descr": "Civic address where the Water Quality measurement is taken.",
+            "description": "Civic address where the Water Quality measurement is taken.",
             "type": "address",
-            "allowedvalues": {
+            "allowedValues": {
                 "normative": "https://schema.org/address"
             },
             "mandatory-if": [
@@ -42,7 +42,7 @@
             ]
         },
         "temperature": {
-            "descr": "Temperature.",
+            "description": "Temperature.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -51,11 +51,11 @@
             },
             "unit": {
                 "symbol": "Cº",
-                "descr": "Celsius Degrees"
+                "description": "Celsius Degrees"
             }
         },
         "conductivity": {
-            "descr": "Electrical Conductivity.",
+            "description": "Electrical Conductivity.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -64,11 +64,11 @@
             },
             "unit": {
                 "symbol": "S/m",
-                "descr": "Siemens per meter"
+                "description": "Siemens per meter"
             }
         },
         "conductance": {
-            "descr": "Specific Conductance.",
+            "description": "Specific Conductance.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -77,11 +77,11 @@
             },
             "unit": {
                 "symbol": "S/m",
-                "descr": "Siemens per meter at 25 ºC"
+                "description": "Siemens per meter at 25 ºC"
             }
         },
         "tss": {
-            "descr": "Total suspended solids.",
+            "description": "Total suspended solids.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -90,11 +90,11 @@
             },
             "unit": {
                 "symbol": "mg/L",
-                "descr": "milligrams per liter"
+                "description": "milligrams per liter"
             }
         },
         "tds": {
-            "descr": "Total dissolved solids.",
+            "description": "Total dissolved solids.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -103,11 +103,11 @@
             },
             "unit": {
                 "symbol": "mg/L",
-                "descr": "milligrams per liter"
+                "description": "milligrams per liter"
             }
         },
         "turbidity": {
-            "descr": "Amount of light scattered by particles in the water column.",
+            "description": "Amount of light scattered by particles in the water column.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -116,11 +116,11 @@
             },
             "unit": {
                 "symbol": "FTU",
-                "descr": "Formazin Turbidity Unit"
+                "description": "Formazin Turbidity Unit"
             }
         },
         "salinity": {
-            "descr": "Amount of salts dissolved in water.",
+            "description": "Amount of salts dissolved in water.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -129,11 +129,11 @@
             },
             "unit": {
                 "symbol": "ppt",
-                "descr": "Parts per thousand"
+                "description": "Parts per thousand"
             }
         },
         "pH": {
-            "descr": "acidity or basicity of an aqueous solution.",
+            "description": "acidity or basicity of an aqueous solution.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -142,11 +142,11 @@
             },
             "unit": {
                 "symbol": "",
-                "descr": "Negative of the logarithm to base 10 of the activity of the hydrogen ion."
+                "description": "Negative of the logarithm to base 10 of the activity of the hydrogen ion."
             }
         },
         "orp": {
-            "descr": "Oxidation-Reduction potential.",
+            "description": "Oxidation-Reduction potential.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -155,11 +155,11 @@
             },
             "unit": {
                 "symbol": "mV",
-                "descr": "millivolts"
+                "description": "millivolts"
             }
         },
         "O2": {
-            "descr": "Level of free, non-compound oxygen present.",
+            "description": "Level of free, non-compound oxygen present.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -168,11 +168,11 @@
             },
             "unit": {
                 "symbol": "mg/L",
-                "descr": "milligrams per liter"
+                "description": "milligrams per liter"
             }
         },
         "Chla": {
-            "descr": "Concentration of chlorophyll A.",
+            "description": "Concentration of chlorophyll A.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -181,11 +181,11 @@
             },
             "unit": {
                 "symbol": "mg/L",
-                "descr": "milligrams per liter"
+                "description": "milligrams per liter"
             }
         },
         "PE": {
-            "descr": "Concentration of pigment phycoerythrin which can be measured to estimate cyanobacteria concentrations specifically.",
+            "description": "Concentration of pigment phycoerythrin which can be measured to estimate cyanobacteria concentrations specifically.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -194,11 +194,11 @@
             },
             "unit": {
                 "symbol": "mg/L",
-                "descr": "milligrams per liter"
+                "description": "milligrams per liter"
             }
         },
         "NH4": {
-            "descr": "Concentration of ammonia.",
+            "description": "Concentration of ammonia.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -207,11 +207,11 @@
             },
             "unit": {
                 "symbol": "mg/L",
-                "descr": "milligrams per liter"
+                "description": "milligrams per liter"
             }
         },
         "Cl": {
-            "descr": "Concentration of chlorides.",
+            "description": "Concentration of chlorides.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -220,11 +220,11 @@
             },
             "unit": {
                 "symbol": "mg/L",
-                "descr": "milligrams per liter"
+                "description": "milligrams per liter"
             }
         },
         "NO3": {
-            "descr": "Concentration of nitrates.",
+            "description": "Concentration of nitrates.",
             "type": "Number",
             "metadata": {
                 "timestamp": {
@@ -233,11 +233,11 @@
             },
             "unit": {
                 "symbol": "mg/L",
-                "descr": "milligrams per liter"
+                "description": "milligrams per liter"
             }
         },
         "dateModified": {
-            "descr": "Last update timestamp of this entity.",
+            "description": "Last update timestamp of this entity.",
             "type": "DateTime"
         }
     }
